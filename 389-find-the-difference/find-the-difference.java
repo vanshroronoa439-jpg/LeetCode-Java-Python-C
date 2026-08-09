@@ -1,17 +1,12 @@
 class Solution {
     public char findTheDifference(String s, String t) {
-        HashMap<Character,Integer> map=new HashMap<>();
-        int len1=s.length(),len2=t.length();
-        int sum1=0;
+        int len1=s.length();
+        int sum=0;
         for(int i=0;i<len1;i++){
-            char c=s.charAt(i);
-            sum1 -=c;
+            sum -=s.charAt(i);
+            sum +=t.charAt(i);
         }
-        for(int j=0;j<len2;j++){
-            char ch=t.charAt(j);
-            sum1 +=ch;
-        }
-        
-        return (char)(sum1);
+        sum+=t.charAt(len1);
+        return (char)(sum);
     }
 }
