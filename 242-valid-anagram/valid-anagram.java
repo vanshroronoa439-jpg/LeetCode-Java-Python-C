@@ -4,19 +4,17 @@ class Solution {
         if(len1!=len2){
             return false;
         }
-        HashMap<Character,Integer> map=new HashMap<>();
+        HashMap<Character,Integer> map1=new HashMap<>();
+        HashMap<Character,Integer> map2=new HashMap<>();
         for(int i=0;i<len1;i++){
             char c1=s.charAt(i);
             char c2=t.charAt(i);
-            map.put(c1,map.getOrDefault(c1,0)+1);
-            map.put(c2,map.getOrDefault(c2,0)-1);
+            map1.put(c1,map1.getOrDefault(c1,0)+1);
+            map2.put(c2,map2.getOrDefault(c2,0)+1);
         }
-        for(char key: map.keySet()){
-            int val=map.get(key);
-            if(val!=0){
-                return false;
-            }
+        if(map1.equals(map2)){
+            return true;
         }
-        return true;
+        return false;
     }
 }
