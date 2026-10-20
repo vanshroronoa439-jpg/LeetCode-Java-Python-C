@@ -15,30 +15,18 @@ class Solution {
         ListNode ans = new ListNode(-1);
         ListNode curr=ans;
         int sum=0,carry=0;
-        while(c1!=null && c2!=null){
-            sum=c1.val+c2.val+carry;
-            carry=sum/10;
+        while(c1!=null || c2!=null || carry!=0){
+            sum=carry;
+            if(c1!=null){
+                sum+=c1.val;
+                c1=c1.next;
+            }
+            if(c2!=null){
+                sum+=c2.val;
+                c2=c2.next;
+            }
             curr.next=new ListNode(sum%10);
-            curr=curr.next;
-            c1=c1.next;
-            c2=c2.next;
-        }
-        while(c1!=null){
-            sum=c1.val+carry;
             carry=sum/10;
-            curr.next=new ListNode(sum%10);
-            curr=curr.next;
-            c1=c1.next;
-        }
-        while(c2!=null){
-            sum=c2.val+carry;
-            carry=sum/10;
-            curr.next=new ListNode(sum%10);
-            curr=curr.next;
-            c2=c2.next;
-        }
-        if(carry!=0){
-            curr.next=new ListNode(carry);
             curr=curr.next;
         }
         return ans.next;
