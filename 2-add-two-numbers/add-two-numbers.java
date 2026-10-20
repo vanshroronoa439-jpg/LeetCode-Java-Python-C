@@ -24,7 +24,7 @@ class Solution {
                 l2=l2.next;
             }
             curr.next=new ListNode(sum%10);
-            carry=sum/10;
+            carry=sum>=10?1:0;
             curr=curr.next;
         }
         return ans.next;
