@@ -10,20 +10,18 @@
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode c1=l1;
-        ListNode c2=l2;
         ListNode ans = new ListNode(-1);
         ListNode curr=ans;
         int sum=0,carry=0;
-        while(c1!=null || c2!=null || carry!=0){
+        while(l1!=null || l2!=null || carry!=0){
             sum=carry;
-            if(c1!=null){
-                sum+=c1.val;
-                c1=c1.next;
+            if(l1!=null){
+                sum+=l1.val;
+                l1=l1.next;
             }
-            if(c2!=null){
-                sum+=c2.val;
-                c2=c2.next;
+            if(l2!=null){
+                sum+=l2.val;
+                l2=l2.next;
             }
             curr.next=new ListNode(sum%10);
             carry=sum/10;
