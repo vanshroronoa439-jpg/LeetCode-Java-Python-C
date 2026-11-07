@@ -5,7 +5,6 @@ class Solution {
             return false;
         }
         int[] ch=new int[26];
-        HashMap<Character,Integer> map=new HashMap<>();
         for(int i=0;i<len1;i++){
            ch[s.charAt(i)-97]++;
            ch[t.charAt(i)-97]--;
