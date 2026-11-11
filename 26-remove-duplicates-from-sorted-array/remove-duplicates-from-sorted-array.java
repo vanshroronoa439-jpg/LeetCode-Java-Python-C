@@ -9,6 +9,6 @@ class Solution {
                 k++;
             }
         }
-        return(k);
+        return(j);
     }
 }
